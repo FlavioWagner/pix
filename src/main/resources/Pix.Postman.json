@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "b46c23b4-123c-4ef3-ba90-dc70dba0044d",
+		"name": "Pix",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10307058"
+	},
+	"item": [
+		{
+			"name": "Project Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080",
+					"host": [
+						"localhost"
+					],
+					"port": "8080"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar PSPs Disponiveis",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/psp",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"psp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Informações do PSP",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/psp/{codigo do PSP}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"psp",
+						"{codigo do PSP}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/{Codigo do Banco}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"{Codigo do Banco}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar PIX",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"calendario\": {\r\n    \"expiracao\": 3600\r\n  },\r\n  \"devedor\": {\r\n    \"cpf\": \"01234567890\",\r\n    \"nome\": \"Fulano da Silva\"\r\n  },\r\n  \"valor\": {\r\n    \"original\": \"1.00\"\r\n  },\r\n  \"chave\": \"7d9f0335-8dcc-4054-9bf9-0dbd61d36906\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/criar/{codigo do psp}/{codigo txid}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"criar",
+						"{codigo do psp}",
+						"{codigo txid}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Pix",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/consultar/{codigo do psp}/{codigo txid}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consultar",
+						"{codigo do psp}",
+						"{codigo txid}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
